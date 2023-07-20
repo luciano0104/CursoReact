@@ -1,0 +1,14 @@
+[
+    {"id":1, "name":"lengua", "description":"Remera Sublimada personalizada", "image":"../asset/indumentaria1.jpeg", "price":3500,"stock":5, "category":"indumentaria" },
+    {"id":2, "name":"boca", "description":"Remera Sublimada personalizada", "image":"../asset/indumentaria2.jpeg", "price":3500,"stock":5, "category":"indumentaria" },
+    {"id":3, "name":"river", "description":"Remera Sublimada personalizada", "image":"../asset/indumentaria3.jpeg", "price":3500,"stock":5, "category":"indumentaria" },
+    {"id":4, "name":"pico", "description":"Remera Sublimada personalizada", "image":"../asset/indumentaria4.jpeg", "price":3500,"stock":5, "category":"indumentaria" },
+    {"id":5, "name":"termo", "description":"Termo personalizado", "image":"../asset/mate1.jpeg", "price":5000,"stock":3, "category":"mate" },
+    {"id":6, "name":"mate", "description":"Mate personalizado", "image":"../asset/mate2.jpeg", "price":2500,"stock":3, "category":"mate" },
+    {"id":7, "name":"set", "description":"Set de Mate personalizado", "image":"../asset/mate3.jpeg", "price":9000,"stock":3, "category":"mate" },
+    {"id":8, "name":"individual", "description":"Mate individual personalizado", "image":"../asset/mate4.jpeg", "price":3000,"stock":3, "category":"mate" },
+    {"id":9, "name":"dibujo", "description":"Taza personalizada", "image":"../asset/taza1.jpeg", "price":1500,"stock":4, "category":"taza" },
+    {"id":10, "name":"charly", "description":"Taza personalizada", "image":"../asset/taza2.jpeg", "price":1500,"stock":4, "category":"taza" },
+    {"id":11, "name":"jordan", "description":"Taza personalizada", "image":"../asset/taza3.jpeg", "price":1500,"stock":4, "category":"taza" },
+    {"id":12, "name":"papel", "description":"Taza personalizada", "image":"../asset/taza4.jpeg", "price":1500,"stock":4, "category":"taza" }
+]

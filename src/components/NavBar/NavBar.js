@@ -1,32 +1,44 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWidget from '../CartWidget/CartWidget'
-function Menu() {
-  return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">ETERNIA-POP</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">INICIO</Nav.Link>
-            <Nav.Link href="#link">NOSOTROS</Nav.Link>
-            <NavDropdown title="PRODUCTOS" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">INDUMENTARIA</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                MATES
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">TAZAS</NavDropdown.Item>
-              <NavDropdown.Divider />
-              </NavDropdown>
-          </Nav>
-          <Nav.Link href="#link"><CartWidget/></Nav.Link>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
+import '../NavBar/NavBar.css'
+const NavBar = () => {
+    return(
+        <div className="container" id="navbar">
+            <div className="row">
+                        <div className>
+                            <nav className="navbar navbar-expand-lg ">
+                                <div className="container-fluid">
+                                    <Link className="navbar-brand" to={"/"}><img src="../Eternia liston.png" alt="Eternia Pop" width={100} /></Link>
+                                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span className="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div className="collapse navbar-collapse" id="navbarNav">
+                                    <ul className="navbar-nav">
+                                        <li className="nav-item">
+                                        <NavLink className="nav-link" aria-current="page" to={"/category/indumentaria"} >Indumentaria</NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                        <NavLink className="nav-link" to={"/category/mate"}>Mates</NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                        <NavLink className="nav-link" to={"/category/taza"}>Tazas</NavLink>
+                                        </li>
+                                        
+                                    </ul>
+                                    </div>
+                                </div>
+                                <div className="col-6 d-flex justify-content-end  align-items-center">
+                            <CartWidget/>
+                        </div> 
+                            </nav>
+                        </div>
+                               
+            </div>
+        </div>
+        
+            
+    )
 }
 
-export default Menu;
+export default NavBar;
