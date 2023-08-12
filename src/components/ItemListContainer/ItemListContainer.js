@@ -1,38 +1,28 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import arrayProductos from '../../productos/{}arrayProductos.json';
+import { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
-
+import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore, limit, query, where } from 'firebase/firestore';
 
 const ItemListContainer = () => {
-     const [item, setItem] = useState([]);
-     const {id} = useParams();
 
-   useEffect(()=>{
-     const fetchData = async()=>{
-        try{
-        const data = await new Promise((resolve)=>{
-        setTimeout(()=>{
-        resolve(id ? arrayProductos.filter(item=> item.category === id) : arrayProductos)
-       }, 2000);
-        });
-        setItem(data);
-      }catch(error){
-        console.log('Error:', error);
+  const { categoryId } = useParams()
+
+  const [item, setItems] = useState() 
+  
+  const getData = async (categoria) => {
+    
+    const querydb = getFirestore();
+    const queryCollection = categoria ? query(collection(querydb, 'Items'), where("category", "==", categoria), limit(4))
+      : collection(querydb, 'Items');
+    const resultado = await getDocs(queryCollection)
+    const datos = resultado.docs.map(p => ({ id: p.id, ...p.data() }))
+    setItems(datos)
       }
-    };
-    fetchData();
-     }, [id])
 
-  return (
-    <div className='container'>
-      <div className='row'>
-       <ItemList item={item}/>
-      </div>
-      
-    </div>
-  )
-}
+  useEffect(() => {
+    getData(categoryId)
+  }, [categoryId])
 
-export default ItemListContainer
+};
+
+export default ItemListContainer;

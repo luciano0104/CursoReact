@@ -1,20 +1,13 @@
 import React from 'react'
 import Item from '../Item/Item';
 
-
-const ItemList = ({item}) => {
+const ItemList = ({ data }) => {
   return (
-    <div className='row' id='itemlist'>
-      {
-      item.map(item=>
-      
-      <div className='col-md-3'
-       key={item.id}>
-       <Item item={item}/> 
-       </div>
-      )   
-      }
-   </div>
+      <div className='container'>
+          <div className='row justify-content-evenly'>
+              {data.map((i) => (<Item item={i} name={i.name} key={i.id} id={i.id} image={i.img} price={i.price}/>))}
+          </div>
+      </div>
   )
 }
 
